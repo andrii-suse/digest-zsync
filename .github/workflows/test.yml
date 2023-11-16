@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update apt
+        run: sudo apt-get update
+      - name: Install dependencies
+        run: sudo apt-get install -y make gcc libdigest-md4-perl
+      - name: Test
+        run: |
+          perl Makefile.PL
+          make
+          sudo make install
+          perl -I lib t/01-smoke.t
