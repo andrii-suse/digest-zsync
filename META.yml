@@ -1,0 +1,11 @@
+--- #YAML:1.0
+name: Digest::Zsync
+version: 0.1
+abstract: Perl implementation of hash calculation similar to zsyncmake
+license: perl
+author:
+  - Andrii Nikitin, andrii.nikitin@suse.com
+provides:
+  Digest::Zsync:
+    file: lib/Digest/Zsync.pm
+    version: 0.1
